@@ -1,2 +1,2 @@
 @echo OFF
-python C:\Users\Michael\PyCharmProjects\GitAssistant\main.py %*
+python C:\Users\josep\Documents\GitAssistant\main.py %*
