@@ -45,6 +45,14 @@ def patch(message):
 def switch(branch):
     run_command("metro", "switch", branch)
 
+def sync():
+    run_command("git", "pull")
+    run_command("git", "push")
+
+def create(branch):
+    run_command("metro", "branch", branch)
+    run_command("metro", "switch", branch)
+
 
 def make_digest(key, message):
     key = bytes(key, 'UTF-8')
@@ -113,6 +121,10 @@ def exec_order(order, session_id):
         patch(data.get("message", None))
     elif action == "switch":
         switch(data["branch"])
+    elif action == "sync":
+        sync()
+    elif action == "create":
+        create(data["branch"])
     else:
         return
 
